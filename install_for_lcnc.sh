@@ -36,6 +36,7 @@ cd ~/dev/linuxcnc/rip/src/
 ./autogen.sh
 ./configure --with-realtime=uspace
 make -j$CPUS
+sudo -A make setuid
 
 # make the deb files
 cd ~/dev/linuxcnc/rip/debian/
