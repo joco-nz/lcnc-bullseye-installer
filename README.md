@@ -8,4 +8,6 @@ Files that must be executable:
 
 install_for_lcnc.sh
 
+sudo_helper.sh
+
 updater.sh
