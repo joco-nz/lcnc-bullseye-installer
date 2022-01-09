@@ -37,11 +37,28 @@ cd ~/dev/linuxcnc/rip/src/
 ./configure --with-realtime=uspace
 make -j$CPUS
 
+# make the deb files
 cd ~/dev/linuxcnc/rip/debian/
 ./configure uspace
 cd ~/dev/linuxcnc/rip/
 dpkg-buildpackage -b -uc
 
+# install the deb files
 cd ~/dev/linuxcnc/
 sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre0_amd64.deb
 sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre0_all.deb
+
+# get qtpyvcp
+cd ~/dev
+git clone https://github.com/kcjengr/qtpyvcp
+cd qtpyvcp
+python3 -m pip install --editable .
+cp scripts/.xsessionrc ~/
+
+# install the QTDesigner plugins just in case someone needs to use it
+cd ~/dev/qtpyvcp/pyqt5designer/Qt5.15.2-64bit/python3.9/
+sudo -A ./install.sh
+
+# copy the qtpyvcp sims into place. People can delete them later if they want
+cp -r ~/dev/qtpyvcp/linuxcnc ~/
+
