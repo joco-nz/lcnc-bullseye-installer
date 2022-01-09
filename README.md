@@ -5,5 +5,7 @@ Run install_for_lcnc.sh to complete a full linuxcnc install including installed 
 Run updater.sh to update the install.
 
 Files that must be executable:
+
 install_for_lcnc.sh
+
 updater.sh
