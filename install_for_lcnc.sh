@@ -122,4 +122,4 @@ zenity --info \
 	--title="Installation Finished" \
 	--text="The system will now log you out.\nPlease log back in and perform any tests you feel necessary\nto check the install." \
 	--no-wrap
-#xfce4-session-logout --logout
+xfce4-session-logout --logout
