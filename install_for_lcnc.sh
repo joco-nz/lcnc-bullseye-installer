@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# stop script at the first error
+set -e
+
 export SUDO_ASKPASS=`pwd`/sudo_helper.sh
 
 
@@ -50,23 +53,19 @@ then
 	# set up the build locations for self build
 	CPUS=`nproc`
 	mkdir ~/dev/linuxcnc
+	echo "I: Cloning the development branch (master) of LinuxCNC"
 	git clone git://github.com/linuxcnc/linuxcnc.git ~/dev/linuxcnc/rip
-	cd ~/dev/linuxcnc/rip/src/
-	./autogen.sh
-	./configure --with-realtime=uspace
-	make -j$CPUS
-	sudo -A make setuid
-
-	# make the deb files
-	cd ~/dev/linuxcnc/rip/debian/
-	./configure uspace
 	cd ~/dev/linuxcnc/rip/
+
+	# configure, build and make the deb files
+	echo "I: starting build"
+	debian/configure
 	dpkg-buildpackage -b -uc
 
 	# install the deb files
-	cd ~/dev/linuxcnc/
-	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre0_amd64.deb
-	sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre0_all.deb
+	echo "I: Will now install the Debian packages, you may be asked for a sudo password"
+	sudo -A dpkg -i ../linuxcnc-uspace_2.9.0~pre0_amd64.deb
+	sudo -A dpkg -i ../linuxcnc-doc-en_2.9.0~pre0_all.deb
 fi
 
 
