@@ -56,7 +56,7 @@ then
 	# set up the build locations for self build
 	CPUS=`nproc`
 	mkdir ~/dev/linuxcnc
-	git clone git://github.com/linuxcnc/linuxcnc.git ~/dev/linuxcnc/rip
+	git clone https://github.com/LinuxCNC/linuxcnc.git ~/dev/linuxcnc/rip
 	cd ~/dev/linuxcnc/rip/src/
 	./autogen.sh
 	./configure --with-realtime=uspace
