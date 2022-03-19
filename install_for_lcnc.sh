@@ -5,6 +5,12 @@ export SUDO_ASKPASS=`pwd`/sudo_helper.sh
 
 RT_KERNEL_YES=`uname -a | grep -c PREEMPT_RT`
 
+which zenity &>/dev/null
+if [ $? -eq 0 ]
+then
+   sudo apt install zenity
+fi
+
 if [ $RT_KERNEL_YES -eq 0 ]
 then
     zenity --notification \
