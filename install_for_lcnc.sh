@@ -112,13 +112,13 @@ then
 		git clone https://github.com/kcjengr/qtpyvcp.conversational-gcode.git
 		
 		cd ~/dev/probe_basic
-		git checkout python3
+		git checkout origin/python3
 		qcompile .
 		python3 -m pip install --no-deps -e .
 		cp -r ~/dev/probe_basic/config/probe_basic/ ~/linuxcnc/configs/
 		
 		cd ~/dev/qtpyvcp.conversational-gcode
-		git checkout python3
+		git checkout origin/python3
 		python3 -m pip install -e .
 	fi
 fi
