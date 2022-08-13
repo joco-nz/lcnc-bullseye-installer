@@ -2,7 +2,7 @@
 
 The key is to have a cleanly made Debian 11 (Bullseye) install. I tend to use an nonfree firmware iso from: https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/
 
-Typically:   https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current-live/amd64/iso-hybrid/debian-live-11.3.0-amd64-xfce+nonfree.iso
+Typically I use the xfce nonfree iso   (direct link removed as it changes too much).
 
 When doing the install do NOT set a root password.  If you do you will have to add your user to the sudo group.  Search google for how to do that.
 
