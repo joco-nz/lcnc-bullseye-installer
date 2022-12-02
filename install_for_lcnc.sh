@@ -63,7 +63,9 @@ then
 	CPUS=`nproc`
 	mkdir ~/dev/linuxcnc
 	git clone https://github.com/LinuxCNC/linuxcnc.git ~/dev/linuxcnc/rip
-	cd ~/dev/linuxcnc/rip/src/
+	cd ~/dev/linuxcnc/rip/
+	git checkout v2.9.0-pre1
+	cd src/
 	./autogen.sh
 	./configure --with-realtime=uspace
 	make -j$CPUS
@@ -77,8 +79,8 @@ then
 
 	# install the deb files
 	cd ~/dev/linuxcnc/
-	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre0_amd64.deb
-	#sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre0_all.deb
+	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre1_amd64.deb
+	#sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre1_all.deb
 fi
 
 
