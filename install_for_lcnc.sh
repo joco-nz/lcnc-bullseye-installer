@@ -65,6 +65,7 @@ then
 	git clone https://github.com/LinuxCNC/linuxcnc.git ~/dev/linuxcnc/rip
 	cd ~/dev/linuxcnc/rip/
 	git checkout v2.9.0-pre1
+	VERSION=(head -n1 debian/changelog |cut -f2 -d' ' | tr -d "()" | sed -e 's/^[0-9]://' )
 	cd src/
 	./autogen.sh
 	./configure --with-realtime=uspace
@@ -79,8 +80,8 @@ then
 
 	# install the deb files
 	cd ~/dev/linuxcnc/
-	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre1_amd64.deb
-	#sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre1_all.deb
+	sudo -A dpkg -i linuxcnc-uspace_${VERSION}_amd64.deb
+	#sudo -A dpkg -i linuxcnc-doc-en_${VERSION}_all.deb
 fi
 
 
