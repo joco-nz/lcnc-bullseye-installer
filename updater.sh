@@ -36,8 +36,8 @@ then
 
 	# install the deb files
 	cd ~/dev/linuxcnc/
-	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre0_amd64.deb
-	#sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre0_all.deb
+	sudo -A dpkg -i linuxcnc-uspace_2.9.0~pre1_amd64.deb
+	#sudo -A dpkg -i linuxcnc-doc-en_2.9.0~pre1_all.deb
 fi
 
 if [ $DEVELOPER -eq 1 ]
