@@ -64,7 +64,7 @@ then
 	mkdir ~/dev/linuxcnc
 	git clone https://github.com/LinuxCNC/linuxcnc.git ~/dev/linuxcnc/rip
 	cd ~/dev/linuxcnc/rip/
-	git checkout v2.9.0-pre1
+	git checkout -b 2.9
 	VERSION=(head -n1 debian/changelog |cut -f2 -d' ' | tr -d "()" | sed -e 's/^[0-9]://' )
 	cd src/
 	./autogen.sh
