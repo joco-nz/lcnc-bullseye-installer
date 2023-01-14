@@ -101,6 +101,8 @@ then
 	# copy the qtpyvcp sims into place. People can delete them later if they want
 	cp -r ~/dev/qtpyvcp/linuxcnc ~/
 	export PATH=$HOME/.local/bin:$PATH
+else
+	python3 -m pip install qtpyvcp
 fi
 
 # Install probe basic
